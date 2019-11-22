@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Opdracht-B</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/javascript.js"></script>
+    <link rel="icon"type="image/png" href="img/js.png">
+  </head>
+  <body ng-app="myModule">
+
+    <div class="content">
+
+
+      <div class="table" style="transform:translate(300px,100px);" ng-controller="myController">
+        <div class="center">
+          <br><h1>Tabel</h1><br>
+        </div>
+          <table class="formulier pos" style="transform:translate(-45%,0px);">
+            <tr>
+              <th ng-click="sortData('prijs')">Prijs</th>
+              <th ng-click="sortData('merk')">Merk</th>
+              <th ng-click="sortData('auto')">Auto</th>
+              <th ng-click="sortData('gewicht')">Gewicht</th>
+              <th ng-click="sortData('num')">num</th>
+            </tr>
+            <tr class="info" ng-repeat="auto in auto | orderBy:sortColumn:reverseSort">
+              <td>$ {{auto.prijs}}K</td>
+              <td class="uper">{{auto.merk}}</td> <!--zelf vind ik dat upper lelijk is-->
+              <td>{{auto.auto}}</td>
+              <td>{{auto.gewicht}}</td>
+              <td>{{auto.num}}</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+
+  </body>
+</html>

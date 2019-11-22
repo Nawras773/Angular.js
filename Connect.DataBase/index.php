@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Opdracht-C</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/javascript.js"></script>
+  </head>
+  <body ng-app="myModulee">
+    <div class="content">
+      <?php
+         include_once('bedrijf.php');
+      ?>
+
+      <div class="table" style="transform:translate(300px,100px);" ng-controller="myController">
+        <div class="center">
+          <br><h1>Tabel</h1><br>
+        </div>
+          <table class="formulier pos" style="transform:translate(-45%,0px);">
+            <tr>
+              <th ng-click="sortData('bedrijfsnaam')">Bedrijfsnaam</th>
+              <th ng-click="sortData('adress')">Adres&emsp;&emsp;</th>
+              <th ng-click="sortData('woonplaats')">Woonplaats</th>
+              <th ng-click="sortData('telnr')">Telnr</th>
+              <th ng-click="sortData('num')">num</th>
+            </tr>
+            <tr class="info" ng-repeat="bedrijf in bedrijf | orderBy:sortColumn:reverseSort">
+              <td>{{bedrijf.bedrijfsnaam}}</td>
+              <td>{{bedrijf.adress}}</td>
+              <td>{{bedrijf.woonplaats}}</td>
+              <td>{{bedrijf.telnr}}</td>
+              <td>{{bedrijf.num}}</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </body>
+</html>
